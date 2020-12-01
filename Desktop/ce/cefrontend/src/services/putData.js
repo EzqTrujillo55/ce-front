@@ -1,8 +1,8 @@
 import { message } from "antd";
 
-export const setData =  async (resource, values) => {
+export const putData =  async (resource, values) => {
     const data = await fetch(`http://localhost:8000/api/${resource}`, {
-        method: "POST",
+        method: "PUT",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
@@ -21,5 +21,3 @@ export const setData =  async (resource, values) => {
     );
     return data;
   };
-
-  

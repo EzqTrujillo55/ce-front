@@ -1,13 +1,10 @@
 import { message } from "antd";
 
-export const setData =  async (resource, values) => {
+export const setDataWithFiles =  async (resource, values) => {
+    console.log('formData desde fetch', Object.fromEntries(values));
     const data = await fetch(`http://localhost:8000/api/${resource}`, {
         method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(values)
+        body: values
       })
         .then(resp => resp.json())
         .then(data => {

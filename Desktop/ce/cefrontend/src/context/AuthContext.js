@@ -13,27 +13,9 @@ const AuthContext = React.createContext({});
      }, []);
      const login = (values ) => {
         setLoading(true);
-        fetch("http://localhost:8000/api/login_check", {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(values)
-          })
-            .then(resp => resp.json())
-            .then(data => {
-                console.log(data); 
-                if(data.code==401){
-                    message.error('Credenciales incorrectas');
-                    setLoading(false);
-                }else{
-                localStorage.setItem('token', data.token); 
-                setToken(localStorage.getItem('token')); 
-                setLoading(false);
-                }  
-            }
-        );
+        localStorage.setItem('token', 'valido'); 
+        setToken(localStorage.getItem('token')); 
+        setLoading(false);
      }
      
      const logout = () => {
