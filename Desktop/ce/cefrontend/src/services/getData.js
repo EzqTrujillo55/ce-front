@@ -1,7 +1,7 @@
 export const getData =  async (resource) => {
     const data = await fetch(`http://localhost:8000/api/${resource}`, {
         headers:{
-            Authorization: `Bearer ${localStorage.getItem('token')}`
+            mode: 'no-cors'
         }
     });
     return data.json();

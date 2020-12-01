@@ -13,6 +13,10 @@ import {
 import DashBoard from './DashBoard';
 import Ordenes from './Ordenes';
 import Rutas from './Rutas';
+import Mensajeros from './Mensajeros';
+import Empresas from './Empresas';
+import Contactos from './Contactos';
+import CargaMasiva from './CargaMasiva';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -56,6 +60,22 @@ const MainLayout = () => {
             </Route>
             <Route path = "/ordenes">
               <Ordenes/>
+            </Route>
+
+            <Route path = "/mensajeros">
+              <Mensajeros/>
+            </Route>
+
+            <Route path = "/empresas">
+              <Empresas/>
+            </Route>
+
+            <Route path = "/contactos">
+              <Contactos/>
+            </Route>
+
+            <Route path = "/cargaMasiva">
+              <CargaMasiva/>
             </Route>
           </Switch>
         </Content>
