@@ -1,0 +1,35 @@
+@import "~antd/dist/antd.css";
+
+.ant-layout {
+  min-height: 100% !important;
+}
+
+.ant-menu.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub,
+.ant-menu.ant-menu-dark .ant-menu-sub {
+  background-color: black !important;
+}
+
+.ant-layout-header {
+  background-color: black !important;
+}
+
+.ant-layout-sider-trigger {
+  background: black !important;
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #9f0024;
+}
+
+.ant-btn-primary {
+  background: #9f0024;
+  border-color: #9f0024;
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:active,
+.ant-btn-primary:focus {
+  background: #9f0024;
+  border-color: silver;
+}
