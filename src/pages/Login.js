@@ -3,15 +3,15 @@ import React, { useContext, useState } from 'react';
 import AuthContext from '../context/AuthContext';
 
 const Login = () => {
-    const {login, loading} = useContext(AuthContext); 
+    const {login, loading} = useContext(AuthContext);
     return (
     <Card title="Login">
         <Form onFinish={login}>
-            <Form.Item name="username" label="Email">
+            <Form.Item name="email" label="Email">
                 <Input/>
             </Form.Item>
             <Form.Item name="password" label="Password">
-                <Input/>
+                <Input type="password"/>
             </Form.Item>
             <Form.Item>
                 <Button htmlType="submit" loading={loading}>INGRESAR</Button>
@@ -21,4 +21,4 @@ const Login = () => {
     )
 }
 
-export default Login; 
+export default Login;

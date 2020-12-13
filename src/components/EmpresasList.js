@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'; 
+import React, {useContext, useEffect, useState} from 'react';
 import {Form, Input, Select, Button, Card, Table, Modal, Row, Col, DatePicker} from 'antd';
 import ModalContext from '../context/ModalContext';
 import { getData } from '../services/getData';
@@ -49,6 +49,7 @@ const EmpresasList = (props) => {
         for(let i=0; i<resultado.length; i++){
             resultado[i]['key'] = resultado[i];
         }
+        console.log(resultado);
         setEmpresas(resultado);
         setLoading(false);
     }
@@ -63,7 +64,7 @@ const EmpresasList = (props) => {
 
         if(selectedRowKeys.length>1){
             for(let i=0; i<selectedRowKeys.length; i++){
-                const resultado = await deleteData(`empresas/${selectedRowKeys[i].id}`);    
+                const resultado = await deleteData(`empresas/${selectedRowKeys[i].id}`);
             }
             busqueda({});
             setLoading(false);
@@ -73,7 +74,7 @@ const EmpresasList = (props) => {
     const columns = [
         {
             title: 'Prefijo',
-            dataIndex: 'prefijo', 
+            dataIndex: 'prefijo',
             key: 'prefijo',
         },
         {
@@ -93,22 +94,23 @@ const EmpresasList = (props) => {
         },
         {
             title: 'Email',
-            dataIndex: 'email',
+            dataIndex: 'users',
+            render: users => `${users[0].email}`,
             key: 'email',
-        },     
+        },
         {
             title: 'Teléfono',
             dataIndex: 'telefono',
             key: 'telefono',
-        },     
+        },
         {
             title: 'Status',
             dataIndex: 'status',
             key: 'status',
-        },      
+        },
     ]
 
-    
+
     return (
         <>
         <Form onFinish={busqueda} initialValues={{
@@ -128,10 +130,10 @@ const EmpresasList = (props) => {
              </Row>
         </Form>
         <Row justify="center">
-            
-            <Col span={1}> 
-            <Button icon={<EditTwoTone/>} disabled={disabledBtnEdit} onClick={()=>{setShowModal(true); setEdit(true);  setRegister(selectedRowKeys); setForm(props.form); setDetail(''); console.log(selectedRowKeys); setTitle('Mensajero') }} size="middle"/>
-            </Col>  
+
+            <Col span={1}>
+            <Button icon={<EditTwoTone/>} disabled={disabledBtnEdit} onClick={()=>{setShowModal(true); setEdit(true);  setRegister(selectedRowKeys); setForm(props.form); setDetail(''); console.log(selectedRowKeys); setTitle('Edición Empresa') }} size="middle"/>
+            </Col>
         </Row>
         <br/>
         <Table rowSelection={rowSelection}  dataSource={empresas} columns={columns} loading={loading}/>
